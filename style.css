@@ -1,0 +1,123 @@
+/* Add your CSS here */
+
+/* Header styles */
+header {
+  /* Use a linear gradient for a blue color that changes shade from left to right */
+  background: linear-gradient(to right, #3b82f6, #60a5fa); /* Light to lighter blue */
+  color: white; /* Make text easy to read on blue background */
+  padding: 20px;
+  text-align: center; /* Center all text in the header */
+  /* ...other header styles if any... */
+}
+
+/* Make the SVG image in the header smaller */
+.header-logo {
+  width: 200px;   /* Set the width to 60 pixels */
+  height: auto;  /* Keep the aspect ratio */
+  display: block; /* Make sure it behaves like a block element */
+  margin: 0 auto; /* Center the SVG horizontally */
+}
+
+/* Add a lighter blue background for cards 1-9 */
+/* This color is lighter than a typical header blue */
+.card {
+  background-color: #15b8fc;    /* bright blue for cards */
+  text-align: center;           /* Center all content inside each card */
+  min-width: 250px;             /* Minimum width for each card */
+  max-width: 300px;             /* Maximum width for each card */
+  flex: 0 0 auto;               /* Prevent cards from shrinking or growing */
+  margin: 0;                    /* Remove default margin (gap is used instead) */
+  border-radius: 8px;           /* Rounded corners for cards */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Soft shadow for cards */
+  padding: 16px;                /* Space inside each card */
+  position: relative;           /* Needed for absolute positioning of paragraph */
+  overflow: hidden;             /* Ensures overlay stays within card edges */
+  scroll-snap-align: start;      /* Snap each card to the start */
+}
+
+/* Make images inside cards fit the card width */
+.card img {
+  width: 100%;           /* Image takes up full width of the card */
+  height: auto;          /* Keep the image's aspect ratio */
+  border-radius: 4px;    /* Slightly round the image corners */
+  margin-bottom: 12px;   /* Add some space below the image */
+}
+
+/* Flexbox container for cards 1-9 */
+.cards-container {
+  display: flex;                /* Use Flexbox to arrange cards in a row */
+  overflow-x: auto;             /* Allow horizontal scrolling if needed */
+  gap: 16px;                    /* Space between cards */
+  padding: 16px 0;              /* Add some space above and below the cards */
+  width: 948px;                 /* Show only 3 cards at a time (3 x 300px + 2 x 16px gap + padding) */
+  margin: 0 auto;               /* Center the container on the page */
+}
+
+/* Hide the paragraph in each card by default */
+.card p {
+  /* Make the paragraph appear over the image as an overlay */
+  position: absolute;           /* Position over the card */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;                  /* Overlay matches card width */
+  height: 100%;                 /* Overlay matches card height */
+  background: rgba(21,184,252,0.85);  /* Fade in uses #15b8fc with some transparency */
+  color: #fff;                  /* White text for readability */
+  opacity: 0;                   /* Start hidden */
+  transition: opacity 0.5s;     /* Fade in effect */
+  padding: 20px;                /* Padding for text */
+  box-sizing: border-box;       /* Include padding in width/height */
+  display: flex;                /* Center text */
+  align-items: center;          /* Vertical centering */
+  justify-content: center;      /* Horizontal centering */
+  text-align: center;           /* Center text */
+  border-radius: 8px;           /* Match card's rounded corners */
+  pointer-events: none;         /* Allow hover to pass through */
+}
+
+/* Show the paragraph overlay when hovering over the card */
+.card:hover p {
+  opacity: 1;                   /* Fade in the paragraph */
+  pointer-events: auto;         /* Allow interaction if needed */
+}
+
+/* Center the bottom paragraph text on the page */
+body > p {
+  text-align: center; /* Center the text horizontally */
+}
+
+/* Make the h2 headings in cards 1-9 white and larger, and add a line underneath */
+.card h2 {
+  color: #fff;           /* Set h2 color to white */
+  font-size: 2rem;       /* Make the font size larger */
+  margin-bottom: 8px;    /* Add some space below the h2 */
+  position: relative;    /* Needed for the underline */
+}
+
+/* Add a blue line under the h2 that matches the width of the words */
+.card h2::after {
+  content: "";                       /* No text, just a decorative line */
+  display: block;                    /* Make it a block element */
+  height: 4px;                       /* Line thickness */
+  background: #055693;               /* Line color */
+  margin: 8px auto 0 auto;           /* Center the line and add space above */
+  border-radius: 2px;                /* Rounded edges for the line */
+  width: 70%;                        /* Make the line a little wider than before */
+  min-width: 60px;                   /* Minimum width for visibility */
+  max-width: 100%;                   /* Prevent overflow */
+}
+
+/* Stack cards vertically on small screens */
+@media (max-width: 1000px) {
+  .cards-container {
+    flex-direction: column;   /* Stack cards on top of each other */
+    width: 100%;              /* Use full width of the screen */
+    align-items: center;      /* Center cards horizontally */
+  }
+  .card {
+    max-width: 90%;           /* Make cards fit nicely on small screens */
+    min-width: 200px;         /* Allow cards to shrink a bit */
+  }
+}
