@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir = "ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,10 +7,51 @@
   <link rel="stylesheet" href="style.css" />
   <!-- This link loads the Montserrat font from Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <!-- Import Bootstrap CSS in the <head> section -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Import Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <style>
     /* This CSS sets the font for the whole page to Montserrat */
     body {
       font-family: 'Montserrat', sans-serif;
+    }
+    /* Style for the Learn More links to look like simple text links with an arrow */
+    .learn-more-btn {
+      background: none; /* Remove background */
+      color: #055494; /* Use a darker blue for better contrast */
+      border: none; /* Remove border */
+      padding: 0; /* Remove padding */
+      border-radius: 0; /* Remove border radius */
+      text-decoration: underline; /* Underline for link look */
+      display: inline; /* Make it inline like text */
+      margin-top: 0.5em;
+      transition: color 0.2s;
+    }
+    .learn-more-btn:hover {
+      color: #003366; /* Even darker blue on hover for contrast */
+      background: none;
+    }
+    .learn-more-btn i {
+      margin-left: 0.3em; /* Space between text and arrow */
+    }
+    /* Custom styles for the 3-column section */
+    .three-col-section h2 {
+      color: #0774c4; /* Set header color */
+    }
+    .three-col-section h2 i {
+      color: #6ccffc; /* Set icon color */
+    }
+    .three-col-section p {
+      text-align: left; /* Make paragraphs left-aligned in the 3-column section */
+    }
+    /* Custom styles for the newsletter section */
+    .newsletter-section h2 {
+      color: #0773c4; /* Set the heading color for the newsletter section */
+      text-align: center; /* Center the heading */
+    }
+    .newsletter-section label {
+      color: #0773c4; /* Set the label color for the newsletter section */
     }
   </style>
 </head>
@@ -44,7 +85,7 @@
       <div class="card">
         <h2>1968</h2>
         <h3>Intel Founded</h3>
-        <img src="img/1.jpg" alt="Placeholder Image" />
+        <img src="img/1.jpg" alt="Intel founders Robert Noyce and Gordon Moore" />
         <p>
           Robert Noyce and Gordon Moore rename the newly formed company 
           NM Electronics to Intel Corporation, laying the foundation for 
@@ -55,7 +96,7 @@
       <div class="card">
         <h2>1971</h2>
         <h3>First Microprocessor</h3>
-        <img src="img/2.jpg" alt="Placeholder Image" />
+        <img src="img/2.jpg" alt="Intel 4004 microprocessor" />
         <p>
           Intel debuts the 4004, the world's first commercial microprocessor, 
           igniting the microprocessor revolution and propelling the future 
@@ -66,7 +107,7 @@
       <div class="card">
         <h2>1978</h2>
         <h3>8086 Processor</h3>
-        <img src="img/3.jpg" alt="Placeholder Image" />
+        <img src="img/3.jpg" alt="Intel 8086 processor" />
         <p>
           Launch of the 8086 processor, establishing the x86 architecture 
           that drives countless PCs and servers in the modern era.
@@ -76,7 +117,7 @@
       <div class="card">
         <h2>1985</h2>
         <h3>386 Processor</h3>
-        <img src="img/4.jpg" alt="Placeholder Image" />
+        <img src="img/4.jpg" alt="Intel 386 processor" />
         <p>
           Intel introduces the 386 processor with 32-bit architecture, 
           ushering in a new era of performance and multitasking for 
@@ -87,7 +128,7 @@
       <div class="card">
         <h2>2006</h2>
         <h3>Peak GHG Emissions</h3>
-        <img src="img/intelGhgMKI.jpg" />
+        <img src="img/intelGhgMKI.jpg" alt="Intel greenhouse gas emissions chart" />
         <p>
           This year marks Intel's highest annual greenhouse gas emissions 
           for operations. Over subsequent years, Intel invests heavily in 
@@ -99,7 +140,7 @@
       <div class="card">
         <h2>2020</h2>
         <h3>RISE Strategy</h3>
-        <img src="img/intelRiseMKII.jpg" />
+        <img src="img/intelRiseMKII.jpg" alt="Intel RISE strategy illustration" />
         <p>
           Intel launches its RISE (Responsible, Inclusive, Sustainable, 
           Enabling) strategy and 2030 goals, aiming to drive industry-wide 
@@ -110,7 +151,7 @@
       <div class="card">
         <h2>2022</h2>
         <h3>Net-Zero By 2040</h3>
-        <img src="img/IntelNetZeroMKI.jpg" />
+        <img src="img/IntelNetZeroMKI.jpg" alt="Intel Net-Zero by 2040 announcement" />
         <p>
           Intel announces its commitment to achieve net-zero greenhouse 
           gas emissions (Scope 1 and 2) across its global operations 
@@ -121,7 +162,7 @@
       <div class="card">
         <h2>2023</h2>
         <h3>Renewable Electricity</h3>
-        <img src="img/intelSustainMKII.jpg" />
+        <img src="img/intelSustainMKII.jpg" alt="Intel renewable electricity achievement" />
         <p>
           The company achieves 99% renewable electricity usage worldwide, 
           helping to drastically lower carbon emissions and driving progress 
@@ -132,7 +173,7 @@
       <div class="card">
         <h2>2024</h2>
         <h3>Sustainability Summit</h3>
-        <img src="img/intelSummitMKI.jpg" />
+        <img src="img/intelSummitMKI.jpg" alt="Intel Sustainability Summit event" />
         <p>
           Intel hosts its first Sustainability Summit, uniting suppliers, 
           government officials, and industry leaders to collaborate on 
@@ -142,5 +183,132 @@
     </div>
   </section>
   <p>Scroll to view timeline | Hover over cards to learn more!</p>
+  
+  <!-- 3-Column Content Section using Bootstrap grid -->
+  <section class="container my-5 three-col-section"><!-- Added class for custom styles -->
+    <div class="row text-center">
+      <!-- Column 1 -->
+      <div class="col-12 col-md-4 mb-4">
+        <!-- Icon added before heading -->
+        <h2><i class="bi bi-bar-chart-fill" aria-hidden="true"></i> RISE Strategy</h2>
+        <p>
+          Under its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy,
+          Intel sets ambitious 2030 goals, including driving industry-wide
+          progress on climate action, water stewardship, and waste reduction.
+        </p>
+        <!-- Learn More link with arrow icon -->
+        <a href="#" class="learn-more-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <!-- Column 2 -->
+      <div class="col-12 col-md-4 mb-4">
+        <!-- Icon added before heading -->
+        <h2><i class="bi bi-flag-fill" aria-hidden="true"></i> Commitment</h2>
+        <p>
+          In 2022, Intel pledged to achieve net-zero greenhouse gas emissions
+          (Scope 1 and 2) by 2040. This commitment builds on decades of
+          environmental initiatives and partnerships across the semiconductor
+          industry.
+        </p>
+        <!-- Learn More link with arrow icon -->
+        <a href="#" class="learn-more-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+      <!-- Column 3 -->
+      <div class="col-12 col-md-4 mb-4">
+        <!-- Icon added before heading -->
+        <h2><i class="bi bi-droplet-half" aria-hidden="true"></i> Water &amp; Waste</h2>
+        <p>
+          Intel conserves billions of gallons of water annually and
+          collaborates with local communities to restore watersheds.
+          Intel also upcycles and recycles materials to reduce waste and
+          advance a circular economy.
+        </p>
+        <!-- Learn More link with arrow icon -->
+        <a href="#" class="learn-more-btn">Learn More <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription Form -->
+  <section class="container my-5 newsletter-section"><!-- Added container, margin, and custom class for styling -->
+    <h2>Subscribe to our Newsletter</h2>
+    <!-- Simple Bootstrap form for newsletter subscription -->
+    <form aria-label="Subscribe to Intel's sustainability newsletter">
+      <!-- First Name field -->
+      <div class="mb-3">
+        <label for="firstName" class="form-label">
+          First Name
+          <span style="color: red;">*</span> <!-- Red star for required field -->
+        </label>
+        <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required aria-required="true">
+      </div>
+      <!-- Last Name field -->
+      <div class="mb-3">
+        <label for="lastName" class="form-label">
+          Last Name
+          <span style="color: red;">*</span> <!-- Red star for required field -->
+        </label>
+        <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required aria-required="true">
+      </div>
+      <!-- Email Address field -->
+      <div class="mb-3">
+        <label for="email" class="form-label">
+          Email Address
+          <span style="color: red;">*</span> <!-- Red star for required field -->
+        </label>
+        <input type="email" class="form-control" id="email" placeholder="Enter your email address" required aria-required="true">
+      </div>
+      <!-- Checkbox for agreement -->
+      <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="sustainabilityCheck" required aria-required="true">
+        <label class="form-check-label" for="sustainabilityCheck">
+          I agree to recieve communications about Intel's sustainability initiatives.
+        </label>
+      </div>
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-light text-center py-4 mt-5"><!-- Simple footer with Bootstrap classes -->
+    <div class="container">
+      <!-- Navigation links (placeholders) -->
+      <nav class="mb-2">
+        <a href="#" class="mx-2 text-decoration-underline">Privacy Policy</a>
+        <span>|</span>
+        <a href="#" class="mx-2 text-decoration-underline">Terms of Use</a>
+        <span>|</span>
+        <a href="#" class="mx-2 text-decoration-underline">Contact</a>
+      </nav>
+      <!-- Copyright notice -->
+      <small>&copy; 2024 Intel Corporation. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- JavaScript to detect Google Translate language changes and apply RTL if needed -->
+  <script>
+    // List of common RTL language codes
+    const rtlLangs = ['ar', 'he', 'fa', 'ur'];
+
+    // Function to check and set direction
+    function updateDirection() {
+      // Get the current language from the <html> tag
+      const lang = document.documentElement.lang;
+      // If the language is RTL, set dir="rtl", else set dir="ltr"
+      if (rtlLangs.includes(lang)) {
+        document.documentElement.setAttribute('dir', 'rtl');
+      } else {
+        document.documentElement.setAttribute('dir', 'ltr');
+      }
+    }
+
+    // Run on page load
+    updateDirection();
+
+    // Use MutationObserver to watch for changes to the lang attribute
+    const observer = new MutationObserver(updateDirection);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  </script>
 </body>
+</html>
 
